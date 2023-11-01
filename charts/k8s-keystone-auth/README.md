@@ -49,7 +49,7 @@ endpoint as specified by `clusters[0].cluster.server`.
 
 To install k8s keystone auth run the following:
 
-```
+```shell
 helm  upgrade k8s-keystone-auth --install $THISHELMCHART --version $HELMCHARTVERSION --set openstackAuthUrl=$OS_AUTH_URL --set projectId=$OS_PROJECT_ID
 ```
 
@@ -63,7 +63,6 @@ To interact with a cluster using RBAC you'll need the following:
 In your `kubeconfig` file:
 
 ```yaml
-
 apiVersion: v1
 clusters:
 - cluster:
@@ -101,6 +100,6 @@ users:
 
 **Note:** For clusters created using Magnum, the `openstack` magnum client should generate the appropriate `kubeconfig` file for you with the command:
 
-```
+```shell
 openstack coe cluster config $CLUSTERNAME --use-keystone
 ```
