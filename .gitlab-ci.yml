@@ -8,7 +8,7 @@ stages:
   - publish
 
 .helm_publish_jobs:
-  image: gitlab.int.catalystcloud.nz:4567/catalystcloud/helm-environment:20230606T015011Z
+  image: gitlab.int.catalystcloud.nz:4567/catalystcloud/helm-environment:20240409T060505Z
   before_script:
     - export CHART_VERSION=$(git describe --tags)
   rules:
