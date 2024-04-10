@@ -3,6 +3,16 @@ entries:
   k8s-keystone-auth:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-04-10T02:53:01.978369119Z"
+    description: Set up webhook for Keystone-based RBAC
+    digest: 9e70a9ed3c84724470044defa7612eca22b8a0df16cd06b556d681fe01b2415d
+    name: k8s-keystone-auth
+    type: application
+    urls:
+    - https://github.com/catalyst-cloud/capi-plugin-helm-charts/releases/download/k8s-keystone-auth-1.0.1/k8s-keystone-auth-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-04-10T01:08:59.193259505Z"
     description: Set up webhook for Keystone-based RBAC
     digest: b30f7fdcbb1e9febf0985a15b3fa63ba2779364f96debd53aeddc9929904c884
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://github.com/catalyst-cloud/capi-plugin-helm-charts/releases/download/k8s-keystone-auth-0.0.9/k8s-keystone-auth-0.0.9.tgz
     version: 0.0.9
-generated: "2024-04-10T01:08:59.193287357Z"
+generated: "2024-04-10T02:53:01.978412821Z"
