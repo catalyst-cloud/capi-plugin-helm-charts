@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "k8s-keystone-auth.fullname" . }}
+  namespace: kube-system
+  labels:
+    app: k8s-keystone-auth
+    {{ include "k8s-keystone-auth.labels" . | nindent 4 }}
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-keystone-auth
+      {{ include "k8s-keystone-auth.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      name: {{ include "k8s-keystone-auth.fullname" . }}
+      labels:
+        app: k8s-keystone-auth
+        {{- include "k8s-keystone-auth.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: k8s-keystone
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          args:
+            - ./bin/k8s-keystone-auth
+            - --tls-cert-file
+            - {{ .Values.certDirectory }}/{{ .Values.keystoneTlsCert }}
+            - --tls-private-key-file
+            - {{ .Values.certDirectory }}/{{ .Values.keystoneTlsKey }}
+            - --policy-configmap-name
+            - {{ .Values.policyConfigMapName }}
+            - --keystone-url
+            - {{ include "k8s-keystone-auth.authUrl" . }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: {{ .Values.certDirectory }}
+              name: certs
+              readOnly: true
+          ports:
+            - containerPort: {{ .Values.service.port }}
+      volumes:
+      - name: certs
+        secret:
+          secretName: keystone-auth-certs

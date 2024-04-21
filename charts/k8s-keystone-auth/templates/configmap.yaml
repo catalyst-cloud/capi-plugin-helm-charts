@@ -10,15 +10,3 @@ metadata:
     {{- include "k8s-keystone-auth.labels" . | nindent 4 }}
 data:
   policies: | {{ tpl .Values.rbacPolicies . | nindent 4 }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ .Values.syncConfigMapName }}
-  labels:
-    {{- include "k8s-keystone-auth.labels" . | nindent 4 }}
-data:
-  syncConfig: |
-    role-mappings:
-      - keystone-role: member
-        groups: []

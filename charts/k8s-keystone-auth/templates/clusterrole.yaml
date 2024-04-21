@@ -1,20 +1,14 @@
 ---
-apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   labels:
     kubernetes.io/bootstrapping: rbac-defaults
     {{- include "k8s-keystone-auth.labels" . | nindent 4 }}
-  name: system:{{ include "k8s-keystone-auth.fullname" .  }}
-  namespace: kube-system
+    k8s-app: k8s-keystone-auth
+  name: k8s-keystone-auth
 rules:
-  - apiGroups:
-      - ""
-    resources:
-      - configmaps
-      - services
-      - pods
-    verbs:
-      - get
-      - list
-      - watch
+  # Allow k8s-keystone-auth to get k8s-auth-policy configmap
+- apiGroups: [""]
+  resources: ["configmaps"]
+  verbs: ["get", "watch", "list"]

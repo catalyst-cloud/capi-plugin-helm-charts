@@ -7,13 +7,12 @@ metadata:
   labels:
     kubernetes.io/bootstrapping: rbac-defaults
     {{- include "k8s-keystone-auth.labels" . | nindent 4 }}
-  name: system:{{ include "k8s-keystone-auth.fullname" . }}
-  namespace: kube-system
+    k8s-app: k8s-keystone-auth
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: system:{{ include "k8s-keystone-auth.fullname" . }}
+  name: k8s-keystone-auth
 subjects:
-  - kind: ServiceAccount
-    name: {{ include "k8s-keystone-auth.serviceAccountName" .  }}
-    namespace: kube-system
+- kind: ServiceAccount
+  name: k8s-keystone
+  namespace: kube-system
