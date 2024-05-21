@@ -109,7 +109,7 @@ rbacPolicies: |
           ]
         },
         "resource_permissions": {
-          "!kube-system/['apiServices', 'bindings', 'componentstatuses', 'configmaps', 'cronjobs', 'customResourceDefinitions', 'deployments', 'endpoints', 'events', 'horizontalPodAutoscalers', 'ingresses', 'initializerConfigurations', 'jobs', 'limitRanges', 'localSubjectAccessReviews', 'namespaces', 'networkPolicies', 'persistentVolumeClaims', 'persistentVolumes', 'podDisruptionBudgets', 'podPresets', 'podTemplates', 'pods', 'replicaSets', 'replicationControllers', 'resourceQuotas', 'secrets', 'selfSubjectAccessReviews', 'serviceAccounts', 'services', 'statefulSets', 'storageClasses', 'subjectAccessReviews', 'tokenReviews']" :[
+          "!['kube-system', 'openstack-system', 'tigera-operator', 'calico-apiserver', 'calico-system', 'network-operator', 'gpu-operator']/['apiServices', 'bindings', 'componentstatuses', 'configmaps', 'cronjobs', 'customResourceDefinitions', 'deployments', 'endpoints', 'events', 'horizontalPodAutoscalers', 'ingresses', 'initializerConfigurations', 'jobs', 'limitRanges', 'localSubjectAccessReviews', 'namespaces', 'networkPolicies', 'persistentVolumeClaims', 'persistentVolumes', 'podDisruptionBudgets', 'podPresets', 'podTemplates', 'pods', 'replicaSets', 'replicationControllers', 'resourceQuotas', 'secrets', 'selfSubjectAccessReviews', 'serviceAccounts', 'services', 'statefulSets', 'storageClasses', 'subjectAccessReviews', 'tokenReviews']" :[
             "*"
           ],
           "*/['clusterrolebindings', 'clusterroles', 'rolebindings', 'roles', 'controllerrevisions', 'nodes', 'podSecurityPolicies']": [
@@ -137,10 +137,10 @@ rbacPolicies: |
           ]
         },
         "resource_permissions": {
-          "!kube-system/['tokenReviews']": [
+          "!['kube-system', 'openstack-system', 'tigera-operator', 'calico-apiserver', 'calico-system', 'network-operator', 'gpu-operator']/['tokenReviews']": [
             "*"
           ],
-          "!kube-system/['apiServices', 'bindings', 'componentstatuses', 'configmaps', 'cronjobs', 'customResourceDefinitions', 'deployments', 'endpoints', 'events', 'horizontalPodAutoscalers', 'ingresses', 'initializerConfigurations', 'jobs', 'limitRanges', 'localSubjectAccessReviews', 'namespaces', 'networkPolicies', 'persistentVolumeClaims', 'persistentVolumes', 'podDisruptionBudgets', 'podPresets', 'podTemplates', 'pods', 'replicaSets', 'replicationControllers', 'resourceQuotas', 'secrets', 'selfSubjectAccessReviews', 'serviceAccounts', 'services', 'statefulSets', 'storageClasses', 'subjectAccessReviews']": [
+          "!['kube-system', 'openstack-system', 'tigera-operator', 'calico-apiserver', 'calico-system', 'network-operator', 'gpu-operator']/['apiServices', 'bindings', 'componentstatuses', 'configmaps', 'cronjobs', 'customResourceDefinitions', 'deployments', 'endpoints', 'events', 'horizontalPodAutoscalers', 'ingresses', 'initializerConfigurations', 'jobs', 'limitRanges', 'localSubjectAccessReviews', 'namespaces', 'networkPolicies', 'persistentVolumeClaims', 'persistentVolumes', 'podDisruptionBudgets', 'podPresets', 'podTemplates', 'pods', 'replicaSets', 'replicationControllers', 'resourceQuotas', 'secrets', 'selfSubjectAccessReviews', 'serviceAccounts', 'services', 'statefulSets', 'storageClasses', 'subjectAccessReviews']": [
             "get",
             "list",
             "watch"
