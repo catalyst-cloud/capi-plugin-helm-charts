@@ -1,3 +1,4 @@
+---
 # Default values for keystone-auth.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
@@ -8,7 +9,7 @@ image:
   repository: registry.k8s.io/provider-os/k8s-keystone-auth
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.29.0"
+  tag: "v1.31.2"
 
 imagePullSecrets: []
 nameOverride: ""
